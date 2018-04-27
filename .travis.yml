@@ -30,4 +30,4 @@ install:
   - mkdir build && cd build && cmake .. && make && cd ..
 
 script:
-  - pwd && python perf.py
+  - pwd && ls && python perf.py
