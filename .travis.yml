@@ -2,24 +2,31 @@
 # Workaround present for https://github.com/sunqm/pyscf/issues/71
 
 sudo: required
+dist: trusty
 language: python
 group: deprecated-2017Q4
-dist: trusty
 
 git:
   depth: 3
 
+addons:
+  apt:
+    packages:
+    - gcc
+    - libopenblas-dev
+    - cmake
+
+python:
+  - 2.7
+
+#virtualenv:  affect python 3.5 3.6?
+#    system_site_packages: true
+    
 before_install:
-    - >
-      sudo apt-get -qq install 
-      gcc 
-      libopenblas-dev
-      cmake
-      python-pip
-    - pip install numpy
+  - pip install numpy
     
 install:
-    - mkdir build && cd build && cmake .. && make && cd ..
+  - mkdir build && cd build && cmake .. && make && cd ..
 
 script:
   - python perf.py
