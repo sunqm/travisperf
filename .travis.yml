@@ -4,7 +4,7 @@
 sudo: false
 language: python
 group: deprecated-2017Q4
-os: linux
+dist: trusty
 
 git:
   depth: 3
@@ -16,15 +16,8 @@ addons:
     - libblas-dev
     - cmake
 
-python:
-  - 2.7
-
-#virtualenv:  affect python 3.5 3.6?
-#    system_site_packages: true
-    
 before_install:
-  - pip install --upgrade pip
-  - pip install numpy scipy h5py nose nose-exclude
+  - pip install numpy
     
 install:
   - ln -s `python -c "import os, numpy; print(os.path.dirname(numpy.__file__))"`/.libs/* ./
