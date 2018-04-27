@@ -13,6 +13,7 @@ addons:
   apt:
     packages:
     - gcc
+    - libatlas
     - cmake
 
 python:
@@ -24,7 +25,6 @@ python:
 before_install:
   - pip install --upgrade pip
   - pip install numpy scipy h5py nose nose-exclude
-  - ln -s `python -c "import os, numpy; print(os.path.dirname(numpy.__file__))"`/.libs/libopenblas* libopenblas.so
     
 install:
   - ls -l
