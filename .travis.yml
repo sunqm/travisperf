@@ -27,4 +27,5 @@ install:
 
 script:
   - echo $TRAVIS_BUILD_DIR
-  - pwd && python perf.py
+  - pwd
+  - OMP_NUM_THREADS=1 && python perf.py

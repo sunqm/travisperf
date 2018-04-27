@@ -12,7 +12,7 @@ def dot(a, b):
                     c.ctypes.data_as(ctypes.c_void_p))
     return c
 
-for n in (1000, 2000, 3000):
+for n in (10, 20, 40, 100, 200, 400, 1000, 2000, 3000):
     print('** %s **' % n)
     a = numpy.random.random((n,n))
     t1 = time.time()
