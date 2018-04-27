@@ -9,25 +9,24 @@ os: linux
 git:
   depth: 3
 
-addons:
-  apt:
-    packages:
-    - gcc
-    - libatlas-dev
-    - cmake
+matrix:
+  include:
+    - dist: trusty
 
-python:
-  - 2.7
-
-#virtualenv:  affect python 3.5 3.6?
-#    system_site_packages: true
+virtualenv:
+    system_site_packages: true
     
 before_install:
-  - pip install numpy
+    - >
+      sudo apt-get -qq install 
+      gcc 
+      libblas-dev
+      cmake
+      python-pip
+    - pip install numpy scipy h5py nose nose-exclude
     
 install:
-  - ls -l
-  - mkdir build && cd build && cmake .. && make && cd ..
+    - mkdir build && cd build && cmake .. && make && cd ..
 
 script:
   - python perf.py
