@@ -5,7 +5,13 @@ if ("${CMAKE_BUILD_TYPE}" STREQUAL "")
   set(CMAKE_BUILD_TYPE RELWITHDEBINFO)
 endif()
 
+if(EXISTS "${PROJECT_SOURCE_DIR}/cmake.arch.inc")
+  include("${PROJECT_SOURCE_DIR}/cmake.arch.inc")
+endif()
+if (NOT BLAS_LIBRARIES)
 find_package(BLAS REQUIRED)
+endif()
+
 set(BUILD_SHARED_LIBS 1)
 
 add_library(gemm npdot.c)
