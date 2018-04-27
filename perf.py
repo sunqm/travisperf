@@ -14,7 +14,7 @@ def dot(a, b):
 
 for n in (1000, 2000, 3000):
     print('** %s **' % n)
-    a = numpy.eye(n)
+    a = numpy.random.random((n,n))
     t1 = time.time()
     a.dot(a)
     t0, t1 = t1, time.time(); print(t1-t0)
