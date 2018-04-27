@@ -1,0 +1,40 @@
+# More syntax details at: https://docs.travis-ci.com/user/customizing-the-build
+# Workaround present for https://github.com/sunqm/pyscf/issues/71
+
+sudo: false
+language: python
+group: deprecated-2017Q4
+os: linux
+
+git:
+  depth: 3
+
+addons:
+  apt:
+    packages:
+    - gcc
+    - g++
+    - gfortran
+    - libblas-dev
+    - cmake
+
+python:
+  - 2.7
+
+#virtualenv:  affect python 3.5 3.6?
+#    system_site_packages: true
+    
+before_install:
+  - pip install --upgrade pip
+  - pip install numpy scipy h5py nose nose-exclude
+    
+install:
+  - > 
+    mkdir build &&
+    cd build &&
+    cmake .. &&
+    make &&
+    cd ..
+
+script:
+  - > python perf.py
