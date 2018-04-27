@@ -30,11 +30,7 @@ before_install:
     
 install:
   - > 
-    mkdir build &&
-    cd build &&
-    cmake .. &&
-    make &&
-    cd ..
+    mkdir build && cd build && cmake .. && make && cd ..
 
 script:
   - > python perf.py
