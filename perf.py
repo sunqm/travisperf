@@ -16,8 +16,8 @@ for n in (1000, 2000, 3000):
     print('** %s **' % n)
     a = numpy.random.random((n,n))
     t1 = time.time()
-    a.dot(a)
-    t0, t1 = t1, time.time(); print(t1-t0)
     dot(a,a)
+    t0, t1 = t1, time.time(); print(t1-t0)
+    a.dot(a)
     t0, t1 = t1, time.time(); print(t1-t0)
 
