@@ -13,7 +13,7 @@ addons:
   apt:
     packages:
     - gcc
-    - libblas-dev
+    - libopenblas-dev
     - cmake
 
 python:
