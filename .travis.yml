@@ -1,7 +1,7 @@
 # More syntax details at: https://docs.travis-ci.com/user/customizing-the-build
 # Workaround present for https://github.com/sunqm/pyscf/issues/71
 
-sudo: false
+sudo: required
 language: python
 group: deprecated-2017Q4
 dist: trusty
@@ -9,13 +9,16 @@ dist: trusty
 git:
   depth: 3
 
+addons:
+  apt:
+    packages:
+    - gcc
+    - g++
+    - gfortran
+    - libopenblas-dev
+    - cmake
+
 before_install:
-    - >
-      sudo apt-get -qq install 
-      gcc 
-      libopenblas-dev
-      cmake
-      python-pip
     - pip install numpy
     
 install:
