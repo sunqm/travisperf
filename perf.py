@@ -1,5 +1,8 @@
+import os
 import time, numpy, ctypes
-libgemm = ctypes.CDLL('libgemm.so')
+
+_loaderpath = os.path.dirname(__file__)
+libgemm = numpy.ctypeslib.load_library('libgemm.so', _loaderpath)
 def dot(a, b):
     n = a.shape[0]
     c = numpy.empty((n,n))
