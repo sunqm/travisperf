@@ -13,8 +13,6 @@ addons:
   apt:
     packages:
     - gcc
-    - g++
-    - gfortran
     - libblas-dev
     - cmake
 
@@ -32,4 +30,4 @@ install:
   - mkdir build && cd build && cmake .. && make && cd ..
 
 script:
-  - python perf.py
+  - pwd && python perf.py
