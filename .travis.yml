@@ -22,6 +22,7 @@ before_install:
 install:
   - ln -s `python -c "import os, numpy; print(os.path.dirname(numpy.__file__))"`/.libs/* ./
   - echo 'set(BLAS_LIBRARIES "-L${PROJECT_SOURCE_DIR} '`ls libopenblas*`'")' > cmake.arch.inc
+  - ls -l && cat cmake.arch.inc
   - mkdir build && cd build && cmake .. && make && cd ..
 
 script:
