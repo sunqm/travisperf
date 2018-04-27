@@ -13,7 +13,7 @@ addons:
   apt:
     packages:
     - gcc
-    - libatlas
+    - libatlas-dev
     - cmake
 
 python:
@@ -23,8 +23,7 @@ python:
 #    system_site_packages: true
     
 before_install:
-  - pip install --upgrade pip
-  - pip install numpy scipy h5py nose nose-exclude
+  - pip install numpy
     
 install:
   - ls -l
